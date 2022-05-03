@@ -10,7 +10,6 @@ import AVFoundation
 
 struct ContentView: View {
     var body: some View {
-        
         Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
             let synthesizer = AVSpeechSynthesizer()
             let utterance = AVSpeechUtterance(string: "test 123")
@@ -22,12 +21,10 @@ struct ContentView: View {
                   fatalError("unknown buffer type: \(buffer)")
                }
                if pcmBuffer.frameLength == 0 {
-                 // done
                } else {
-                 // append buffer to file
                  if output == nil {
                    output = try? AVAudioFile(
-                     forWriting: URL(fileURLWithPath: NSHomeDirectory() + "test.caf"),
+                     forWriting: URL(fileURLWithPath: NSHomeDirectory() + "/Docments/test.caf"),
                      settings: pcmBuffer.format.settings,
                      commonFormat: .pcmFormatInt16,
                      interleaved: false)
